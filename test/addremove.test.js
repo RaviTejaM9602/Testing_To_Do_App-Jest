@@ -1,11 +1,10 @@
 import {
-  addItem
+  addItem, removeItem
 } from '../src/CRUD.js';
 
 describe('Test add and remove function', () => {
   describe('Add function tests', () => {
     test('should return the complete list of data', () => {
-      const currentData = JSON.parse(localStorage.getItem('todos'));
       const newData = addItem('Task one');
       expect(newData).toEqual([{
         description: 'Task one',
@@ -25,6 +24,33 @@ describe('Test add and remove function', () => {
         description: 'value',
         completed: false,
         index: 1,
+      }]));
+    });
+  });
+  describe('Remove Function Test', () => {
+    test('should return the id of removed element', () => {
+      addItem('Task one');
+      addItem('Task two');
+      addItem('Task three');
+      addItem('Task four');
+      const removeData = removeItem(1);
+      expect(removeData).toBe(1);
+    });
+    test('should check if element is removed from array', () => {
+      removeItem(1);
+      const curData = localStorage.getItem('todos');
+      expect(curData).toEqual(JSON.stringify([{
+        description: 'Task two',
+        completed: false,
+        index: 1,
+      }, {
+        description: 'Task three',
+        completed: false,
+        index: 2,
+      }, {
+        description: 'Task four',
+        completed: false,
+        index: 3,
       }]));
     });
   });

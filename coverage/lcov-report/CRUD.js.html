@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">31.11% </span>
+                <span class="strong">46.66% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>14/45</span>
+                <span class='fraction'>21/45</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">7.69% </span>
+                <span class="strong">30.76% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/13</span>
+                <span class='fraction'>4/13</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">32.55% </span>
+                <span class="strong">46.51% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>14/43</span>
+                <span class='fraction'>20/43</span>
             </div>
         
             
@@ -145,31 +145,31 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -240,14 +240,14 @@ export const addItem = (value) =&gt; {
   return arr;
 };
 &nbsp;
-export const removeItem = <span class="fstat-no" title="function not covered" >(i</span>d) =&gt; {
-  let arr = <span class="cstat-no" title="statement not covered" >StorageManager.getLocStore();</span>
-<span class="cstat-no" title="statement not covered" >  arr = arr.filter(<span class="fstat-no" title="function not covered" >(e</span>) =&gt; <span class="cstat-no" title="statement not covered" >e.index.toString() !== id.toString())</span>;</span>
-<span class="cstat-no" title="statement not covered" >  arr.forEach(<span class="fstat-no" title="function not covered" >(i</span>tem, index) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    item.index = index + 1;</span>
+export const removeItem = (id) =&gt; {
+  let arr = StorageManager.getLocStore();
+  arr = arr.filter((e) =&gt; e.index.toString() !== id.toString());
+  arr.forEach((item, index) =&gt; {
+    item.index = index + 1;
   });
-<span class="cstat-no" title="statement not covered" >  StorageManager.setLocStore(arr);</span>
-<span class="cstat-no" title="statement not covered" >  return id;</span>
+  StorageManager.setLocStore(arr);
+  return id;
 };
 &nbsp;
 export const updateItem = <span class="fstat-no" title="function not covered" >(v</span>alue, id) =&gt; {
@@ -304,7 +304,7 @@ export const clearMethod = <span class="fstat-no" title="function not covered" >
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Thu Feb 03 2022 10:39:02 GMT+0000 (Greenwich Mean Time)
+                at Thu Feb 03 2022 10:45:40 GMT+0000 (Greenwich Mean Time)
             </div>
         <script src="prettify.js"></script>
         <script>
