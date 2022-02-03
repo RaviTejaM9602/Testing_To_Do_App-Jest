@@ -1,62 +1,51 @@
 import './style.css';
 import {
-  loadList,
-  addToDo,
-  list,
-} from './add-remove.js';
+  addItem,
+  removeItem,
+  displayToDos,
+  getDescriptionInput,
+  markCompleted,
+  clearMethod,
+} from './CRUD.js';
 
-const input = document.querySelector('.todoInput');
-const refresh = document.querySelector('#refresh');
+const todoContainer = document.querySelector('.todos-container');
+const form = document.getElementById('form');
+const input = document.querySelector('.toDoName');
+const clearCompleted = document.querySelector('.clear-completed');
 
-let LIST = '';
-let id = '';
-const data = localStorage.getItem('todoStore');
+window.addEventListener('load', () => {
+  displayToDos(todoContainer);
+});
 
-if (data) {
-  LIST = JSON.parse(data);
-  id = LIST.length;
-  loadList(LIST);
-} else {
-  LIST = [];
-  id = 0;
-}
-
-const pushToDo = () => {
-  const data = localStorage.getItem('todoStore');
-
-  if (data) {
-    LIST = JSON.parse(data);
-    id = LIST.length;
-    loadList(LIST);
-  } else {
-    LIST = [];
-    id = 0;
-  }
-  const toDo = input.value;
-  if (toDo) {
-    addToDo(toDo, id, false);
-
-    LIST.push({
-      name: toDo,
-      index: id,
-      done: false,
-    });
-    loadList(LIST);
-    localStorage.setItem('todoStore', JSON.stringify(LIST));
-    id += 1;
-  }
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const todoContainer = document.querySelector('.todos-container');
+  const inputVal = input.value;
+  addItem(inputVal);
   input.value = '';
-};
+  displayToDos(todoContainer);
+});
 
-document.addEventListener('keyup', (event) => {
-  if (event.keyCode === 13) {
-    pushToDo();
+todoContainer.addEventListener('click', (e) => {
+  if (e.target.tagName === 'I' && e.target.classList.value === 'fas fa-trash-alt') {
+    const {
+      id,
+    } = e.target;
+    removeItem(id);
+    displayToDos(todoContainer);
+  } else if (e.target.tagName === 'INPUT' && e.target.type !== 'checkbox') {
+    e.target.readOnly = false;
+
+    const {
+      id,
+    } = e.target;
+    getDescriptionInput(e.target, id);
+  } else if (e.target.tagName === 'INPUT' && e.target.type === 'checkbox') {
+    const id = e.target.id.replace('check-', '');
+    markCompleted(e.target, id, todoContainer);
   }
 });
 
-refresh.addEventListener('click', () => {
-  const arr = [];
-  window.localStorage.clear();
-  localStorage.setItem('todoStore', JSON.stringify(arr));
-  list.innerHTML = '';
+clearCompleted.addEventListener('click', () => {
+  clearMethod(todoContainer);
 });
