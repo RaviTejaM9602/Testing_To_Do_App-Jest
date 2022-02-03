@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1643885140126" clover="3.2.0">
-  <project timestamp="1643885140126" name="All files">
+<coverage generated="1643886031280" clover="3.2.0">
+  <project timestamp="1643886031280" name="All files">
     <metrics statements="47" coveredstatements="24" conditionals="8" coveredconditionals="5" methods="15" coveredmethods="6" elements="70" coveredelements="35" complexity="0" loc="47" ncloc="47" packages="1" files="2" classes="2"/>
     <file name="CRUD.js" path="C:\Microverse Javascript\Testing_To_Do_App-Jest-\src\CRUD.js">
       <metrics statements="43" coveredstatements="20" conditionals="4" coveredconditionals="1" methods="13" coveredmethods="4"/>

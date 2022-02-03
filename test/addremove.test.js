@@ -1,5 +1,5 @@
 import {
-  addItem, removeItem
+  addItem, removeItem,
 } from '../src/CRUD.js';
 
 describe('Test add and remove function', () => {
@@ -55,4 +55,3 @@ describe('Test add and remove function', () => {
     });
   });
 });
-  
