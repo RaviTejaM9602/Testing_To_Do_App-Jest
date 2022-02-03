@@ -1,28 +1,31 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Todo_List</title>
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
-      integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script
+      src="https://kit.fontawesome.com/fe6dec7cca.js"
       crossorigin="anonymous"
-    />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-  </head>
-  <body>
-    <div class="container">
-      <h2 class="heading">
-        Today's To do
-        <i class="fas fa-sync" id="refresh"></i>
-      </h2>
-      <div class="addTodo">
-        <input type="text" class="todoInput" placeholder="Add your task..." />
-        <i class="fas fa-level-down-alt rotate add"></i>
-      </div>
-      <div class="task-content"></div>
-      <button class="clear">clear all completed</button>
-    </div>
-  </body>
+    ></script>
+    <title>Todo's List</title>
+</head>
+
+<body>
+    <section>
+        <div class="section_header widthHeight">
+            <h2 class="title">Today's To Do</h2>
+            <i class="fas fa-sync"></i>
+        </div>
+        <form id="form" class="input widthHeight">
+            <input type="text" id="to-do-name" class="toDoName" placeholder="Add to your list...">
+            <button type="submit"><i class="fas fa-plus"></i></button>
+        </form>
+        <ul class="todos-container">
+            <!-- Todo List --> 
+        </ul>
+        <button type="button" class="clear-completed widthHeight">Clear all completed</button>
+    </section>
+</body>
+
 </html>
